@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program pentru efectuarea operatiilor aritmetice de baza</title>
+</head>
+
+<body>
+    <script>
+        let validOperator = true;
+
+        let firstNumber = prompt("Introduceti primul numar:");
+        firstNumber = checkIsNumber(firstNumber);
+
+        let arithmeticOperator = prompt("Introduceti caracterul pentru operatia aritmetica de baza:");
+        arithmeticOperator = checkValidOperator();
+
+        let secondNumber = prompt("Introduceti al doilea numar:");
+        secondNumber = checkIsNumber(secondNumber);
+
+        firstNumber = parseFloat(firstNumber);
+        secondNumber = parseFloat(secondNumber);
+
+        let resultForOperation = alert("Rezultatul operatiei aritmetice de baza este:" + resultOperation(firstNumber, secondNumber));
+
+        function checkIsNumber(entryNumber) {
+            while(isNaN(entryNumber))
+            {
+                entryNumber = prompt("Introduceti un numar, caracterul introdus anterior NU este un numar:")
+            }
+
+            return entryNumber;
+        }
+
+        function checkValidOperator() {
+            while (validOperator) {
+                switch (arithmeticOperator) {
+                    case '+':
+                    case '-':
+                    case '*':
+                    case '/':
+                        validOperator = false;
+                        return arithmeticOperator;
+                    default:
+                        arithmeticOperator = prompt("Introduceti caracterul CORECT pentru operatia aritmetica de baza:");
+                        break;
+                }
+            }
+        }
+
+        function resultOperation(firstNumber, secondNumber) {
+            switch (arithmeticOperator) {
+                case '+':
+                    return firstNumber + secondNumber;
+                    break;
+                case '-':
+                    return firstNumber - secondNumber;
+                    break;
+                case '*':
+                    return firstNumber * secondNumber;
+                    break;
+                case '/':
+                    return firstNumber / secondNumber;
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
